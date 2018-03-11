@@ -1,0 +1,202 @@
+/*                                                                      */
+/* Exemplo de um modelo de dados para registo de livros publicados      */
+/* Inclui dados para os livros publicados por Luis Borges Gouveia       */
+/* Versão de Março de 2018 - 16 livros                                  */
+/*                                                                      */
+/* Luis Borges Gouveia                                                  */
+/* Universidade Fernando Pessoa                                         */
+/*                                                                      */
+
+/* Criar o esquema para o modelo de dados dos livros */
+Create table livro(idl integer primary key, titulo text, lingua text, isbn text);
+Create table autor(ida integer primary key, nome text, nacionalidade text);
+Create table editora(ide integer primary key, nome text);
+Create table escrito(esc integer primary key autoincrement, idl integer, ida integer);
+Create table publicado(pub integer primary key autoincrement, idl integer, ide integer);
+Create table compra(cmp integer primary key autoincrement, idl integer, valor  real, data date);
+
+/* Introduzir o livro */
+Insert into livro values (1, ‘Sistemas de Informação de Apoio à Gestão’, ‘Português’, ‘9728589433’);
+Insert into livro values (2, ‘Cidades e Regiões Digitais: impacte nas cidades e nas pessoas’, ‘Português’, ‘9728830033’);
+Insert into livro values (3, ‘Informática e Competências Tecnológicas para a Sociedade da Informação’, ‘Português’, ‘9728830041’);
+Insert into livro values (4, ‘Readings in Information Society ’, ‘Inglês’, ‘9728830149’);
+Insert into livro values (5, ‘Sociedade da Informação: balanço e implicações ’, ‘Português’, ‘9728830181’);
+Insert into livro values (6, ‘O local e-government: a governação digital na autarquia’, ‘Português’, ‘9728589417’);
+Insert into livro values (7, ‘Informática e Competências Tecnológicas para a Sociedade da Informação 2ed’, ‘Português’, ‘9728830300’);
+Insert into livro values (8, ‘Negócio Electrónico - conceitos e perspectivas de desenvolvimento’, ‘Português’, ‘972858962X’);
+Insert into livro values (9, ‘Gestão da Informação na Biblioteca Escolar ’, ‘Português’, ‘9789899533004’);
+Insert into livro values (10, ‘A virtual environment to share knowledge’, ‘Inglês’, ‘9783639129861’);
+Insert into livro values (11, ‘Ciência da Informação: contributos para o seu estudo’, ‘Português’, ‘9789896430900’);
+Insert into livro values (12, ‘Repensar a Sociedade da Informação e do Conhecimento no Início do Século XXI’, ‘Português’, ‘9789726186953’);
+Insert into livro values(13, ‘Gestão da Informação em Museus: uma contribuição para o seu estudo’, ‘Português’, ‘9789899901394’);
+Insert into livro values(14, ‘Web 2.0 and Higher Education. A psychological perspective’, ‘ Inglês’, ‘9783659683466’);
+Insert into livro values(15, ‘Contribuições para a discussão de um modelo de Governo Electrónico Local para Angola’ , ‘Português’, ‘9789899933200’);
+
+/* Introduzir o autor */
+Insert into autor values(1, ‘Luis Borges Gouveia’, ’Português’);
+Insert into autor values(2, ‘João Ranito’, ’Português’);
+Insert into autor values(3, ‘Nuno Magalhães Ribeiro’, ’Português’);
+Insert into autor values(4, ‘Paulo Rurato’, ’Português’);
+Insert into autor values(5, ‘Sofia Gaio’, ’Português’);
+Insert into autor values(6, ‘Rui Moreira’, ’Português’);
+Insert into autor values(7, ‘Margarida Bairrão’, ’Português’);
+Insert into autor values(8, ‘Judite Gonçalves de Freitas’, ’Português’);
+Insert into autor values(9, ‘António Borges Regedor’, ’Português’);
+Insert into autor values(10, ‘José Dias Coelho’, ’Português’);
+Insert into autor values(11, ‘Paula Moura’, ‘Português’);
+Insert into autor values(12, ‘Luis Cunha’, ‘Português’);
+Insert into autor values(13, ‘Pereira Alfredo’, ‘Angolano’);
+
+/* Introduzir a editora */
+Insert into editora values(1, ‘SPI - Principia’);
+Insert into editora values(2, ‘Edições Universidade Fernando Pessoa’);
+Insert into editora values(3, ‘Edições GestKnowing’);
+Insert into editora values(4, ‘VDM – Verlag Dr. Muller’);
+Insert into editora values(5, ‘Sílabo’);
+Insert into editora values(6, ‘Green Lines Instituto’);
+Insert into editora values(7, ‘Lambert Academic Publishing’);
+Insert into editora values(8, ‘Kwigia Editora’);
+
+/* Associar o livro aos autores */
+Insert into escrito values(1, 1, 1);
+Insert into escrito values(2, 1, 2);
+Insert into escrito values(3, 2, 1);
+Insert into escrito values(4, 3, 3);
+Insert into escrito values(5, 3, 1);
+Insert into escrito values(6, 3, 4);
+Insert into escrito values(7, 4, 1);
+Insert into escrito values(8, 4, 5);
+Insert into escrito values(9, 5, 1);
+Insert into escrito values(10, 5, 5);
+Insert into escrito values(11, 6, 1);
+Insert into escrito values(12, 7, 3);
+Insert into escrito values(13, 7, 1);
+Insert into escrito values(14, 7, 4);
+Insert into escrito values(15, 7, 6);
+Insert into escrito values(16, 8, 1);
+Insert into escrito values(17, 9, 7);
+Insert into escrito values(18, 9, 1);
+Insert into escrito values(19, 10, 1);
+Insert into escrito values(20, 11, 8);
+Insert into escrito values(21, 11, 1);
+Insert into escrito values(22, 11, 9);
+Insert into escrito values(23, 12, 10);
+Insert into escrito values(24, 12, 1);
+Insert into escrito values(25, 13, 11);
+Insert into escrito values(26, 13, 1);
+Insert into escrito values(27, 14, 1);
+Insert into escrito values(28, 14, 12);
+Insert into escrito values(29, 15, 13);
+Insert into escrito values(30, 15, 1);
+
+/* Associar o livro à editora */
+Insert into publicado values(1, 1, 1);
+Insert into publicado values(2, 2, 2);
+Insert into publicado values(3, 3, 2);
+Insert into publicado values(4, 4, 2);
+Insert into publicado values(5, 5, 2);
+Insert into publicado values(6, 6, 1);
+Insert into publicado values(7, 7, 2);
+Insert into publicado values(8, 8, 1);
+Insert into publicado values(9, 9, 3);
+Insert into publicado values(10, 10, 4);
+Insert into publicado values(11, 11, 2);
+Insert into publicado values(12, 12, 5);
+Insert into publicado values(13, 13, 6);
+Insert into publicado values(14, 14, 7);
+Insert into publicado values(15, 15, 8);
+
+/* Introdução dos dados sobre a compra de livros */
+Insert into compra values(1,1,15.0,'2004-01-12');
+Insert into compra values(2,2,12.0,'2003-11-11');
+Insert into compra values(3,3,10.0,'2003-10-20');
+Insert into compra values(4,4,7.0,'2004-04-20');
+Insert into compra values(5,5,14.0,'2004-06-15');
+Insert into compra values(6,6,15.0,'2004-12-12');
+Insert into compra values(7,7,10.0,'2003-10-26');
+Insert into compra values(8,8,15.0,'2006-12-10');
+Insert into compra values(9,9,15.0,'2007-03-10');
+Insert into compra values(10,10,75.0,'2009-02-05');
+Insert into compra values(11,11,10.0,'2012-06-18');
+Insert into compra values(12,12,24.0,'2012-09-10');
+Insert into compra values(13, 13, 25.0, ‘2015-01-10’); 
+Insert into compra values(14, 14, 54.0, ‘2015-01-25’); 
+Insert into compra values(15, 15, 17.0, ‘2015-01-17’); 
+
+/* Os dados associados com o 16º livro, de Nobembro de 2017 */
+Insert into livro values(16, ‘O Digital nas Instituições de Ensino Superior’ , ‘Português’, ‘9788552500025’);
+Insert into autor values(14, ‘Andrea Araújo’, ‘Brasileira’);
+Insert into editora values(9, ‘Publit Soluções Editoriais’);
+Insert into escrito values(31, 16, 1);
+Insert into escrito values(32, 16, 14);
+Insert into publicado values(16, 16, 9);
+Insert into compra values(16, 16, 12.5, ‘2017-11-17’); 
+
+/*                                                    */
+/* Exercicios com o comando SQL Select                */
+/*                                                    */
+
+/* Quantas compras estão registadas?                  */
+select count(*) from compra;
+
+/* Qual o valor total dos livros comprados?           */
+select sum(valor) from compra;
+
+/* Qual o valor mínimo de compra registado?           */
+select min(valor) from compra;
+
+/* Qual o valor máximo de compra registado?           */
+select max(valor) from compra;
+
+/* Diferença entre o maior e o menor valor de compra? */
+select max(valor)-min(valor) from compra;
+
+/* Valor médio das compras registadas?                */
+select sum(valor)/count(*) from compra;
+
+/* …ou com resultado igual, mas com menos funções     */
+select avg(valor) from compra;
+
+/* Listar os títulos adquiridos por ordem crescente de valor? */
+select titulo, valor, data from compra, livro where compra.idl=livro.idl order by valor;
+
+/* …por ordem decrescente?                            */
+select titulo, valor, data from compra, livro where compra.idl=livro.idl order by valor desc;
+
+/* …e ordenados por data mais recente, primeiro?      */
+select titulo, valor, data from compra, livro where compra.idl=livro.idl order by data desc;
+
+/* …saiu estranho o output? Tentar antes do SQL, o comando .width 30 10 10 */
+/* …e listar os titulos cujo valor de compra é de menos de 14 euros        */
+select titulo, valor, data from compra, livro where compra.idl=livro.idl and valor < 14 order by data desc; 
+
+
+/* Listar os títulos existentes, indicando o número de anos de antiguidade */
+ select titulo, valor, date(‘now’)-data from compra, livro where compra.idl=livro.idl order by data desc; 
+
+/* …e o número médio de anos das compras efetuadas?                        */
+Select avg(date(’now’)-data) from compra, livro where compra.idl=livro.idl;
+
+/* Listar por ordem mais recente, os títulos de todas as compras realizadas de valor maior que 14 euros */
+/* e cuja antiguidade seja menor ou igual a 5 anos */
+Select titulo, valor from compra, livro where compra.idl=livro.idl and valor > 14 and (date(‘now’)-data) <= 5 order by data desc;
+
+/* Listar, para todos os autores, os respetivos títulos e editoras em que publicaram */
+select autor.nome, titulo, editora.nome from livro, autor, editora, escrito, publicado where escrito.idl=livro.idl and escrito.ida=autor.ida and publicado.idl=livro.idl and publicado.ide=editora.ide order by autor.nome;
+
+/`Listar, para todos os autores, o número de livros que publicaram e que estão na base de dados */
+select autor.nome, count(*) from autor, escrito where escrito.ida=autor.ida group by escrito.ida order by autor.nome;
+
+/* …ordenada pelo número de publicações… */
+select autor.nome, count(*) from autor, escrito where escrito.ida=autor.ida group by escrito.ida order by count(*);
+
+/* Listar, para todos os livros, o número de autores da obra */
+select titulo, count(*) from livro, autor, escrito where autor.ida=escrito.idl  and livro.idl=escrito.idl group by livro.idl order by titulo;
+
+/* …ordenar as obras pelo número crescente de autores */
+select titulo, count(*) from livro, autor, escrito where autor.ida=escrito.idl  and livro.idl=escrito.idl group by livro.idl order by count(*);
+
+
+
+
+
