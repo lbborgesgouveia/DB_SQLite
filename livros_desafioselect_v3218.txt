@@ -1,0 +1,63 @@
+/*                                                                                                  */
+/* Versão 1.0, Março de 2018                                                                        */
+/* Luis Borges Gouveia                                                                              */
+/* Universidade Fernando Pessoa                                                                     */
+/* Exercicio com base no modelo de dados dos livros                                                 */
+/*                                                                                                  */
+
+/* Esquema da base de dados                                                                         */
+/* CREATE TABLE livro(idl integer primary key, titulo text, lingua text, isbn text);                */
+/* CREATE TABLE autor(ida integer primary key, nome text, nacionalidade text);                      */
+/* CREATE TABLE editora(ide integer primary key, nome text);                                        */
+/* CREATE TABLE escrito(esc integer primary key autoincrement, idl integer, ida integer);           */
+/* CREATE TABLE publicado(pub integer primary key autoincrement, idl integer, ide integer);         */
+/* CREATE TABLE compra(cmp integer primary key autoincrement, idl integer, valor  real, data date); */
+
+
+/* Listar os livros disponíveis, indicando Titulo, editora, preço e isbn */
+select livro.titulo, editora.nome, compra.valor, livro.isbn from livro, editora, compra, publicado where livro.idl = publicado.idl and publicado.ide = editora.ide and livro.idl = compra.idl;
+
+/* Listar as línguas das obras disponíveis, indicando o número de obras associadas a cada uma das línguas existentes */
+select lingua, count(lingua) from livro group by lingua;
+
+/* Contar o número de livros existentes */
+select count(*) from livro;
+
+/* Contar o número de livros existentes por ano de compra */
+select strftime('%Y',data), count(*) from compra group by strftime('%Y', data);
+
+/* Listar as editoras existentes, indicando o número de livros por cada editora */
+select editora.nome, count(*) from editora, livro, publicado where livro.idl=publicado.idl and publicado.ide=editora.ide group by editora.nome;
+
+/* Contar o número de diferentes autores, existentes na base de dados */
+select count(*) from autor;
+
+/* Contar o número de nacionalidades distintas */
+select count(distinct nacionalidade) from autor;
+
+/* Listar as nacionalidades, indicando o número de autores para cada uma delas */
+select nacionalidade, count(nacionalidade) from autor group by nacionalidade;
+
+/* Listar as editoras, indicando o número de livros publicados por cada */
+select editora.nome, count(*) from editora, livro, publicado where livro.idl=publicado.idl and publicado.ide=editora.ide group by editora.nome;
+
+/* Indicar o valor de livros comprados por autor */
+select autor.nome, sum(valor) from autor, escrito, compra where compra.idl=escrito.idl and escrito.ida=autor.ida group by autor.nome;
+
+/* Indicar o valor de livros comprados por editora */
+select editora.nome, sum(valor) from editora, compra, publicado where compra.idl=publicado.idl and publicado.ide=editora.ide group by editora.nome;
+
+/* Indicar o valor de livros comprados por ano */
+select strftime('%Y',data), sum(valor) from compra group by strftime('%Y', data);
+
+/* Indicar o número de compras efetuadas por ano */
+select strftime('%Y',data), count(*) from compra group by strftime('%Y', data);
+
+/* Listar as compras efetuadas por editora */
+select editora.nome, count(*) from compra, publicado, editora where compra.idl=publicado.idl and publicado.ide=editora.ide group by editora.nome;
+
+
+/* Listar as compras efetuadas por língua e ordenadas por editora */
+select livro.lingua, count(*) from livro, compra, publicado, editora where compra.idl=publicado.idl and publicado.ide=editora.ide and compra.idl=livro.idl group by livro.lingua order by editora.nome;
+
+select titulo, valor, editora.nome as editora, lingua from livro, compra, editora, publicado where compra.idl=livro.idl and publicado.ide=editora.ide and publicado.idl=compra.idl order by editora;

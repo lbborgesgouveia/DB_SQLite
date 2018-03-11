@@ -29,23 +29,23 @@ Insert into livro values (10, ‘A virtual environment to share knowledge’, ‘Inglê
 Insert into livro values (11, ‘Ciência da Informação: contributos para o seu estudo’, ‘Português’, ‘9789896430900’);
 Insert into livro values (12, ‘Repensar a Sociedade da Informação e do Conhecimento no Início do Século XXI’, ‘Português’, ‘9789726186953’);
 Insert into livro values(13, ‘Gestão da Informação em Museus: uma contribuição para o seu estudo’, ‘Português’, ‘9789899901394’);
-Insert into livro values(14, ‘Web 2.0 and Higher Education. A psychological perspective’, ‘ Inglês’, ‘9783659683466’);
+Insert into livro values(14, ‘Web 2.0 and Higher Education. A psychological perspective’, ‘Inglês’, ‘9783659683466’);
 Insert into livro values(15, ‘Contribuições para a discussão de um modelo de Governo Electrónico Local para Angola’ , ‘Português’, ‘9789899933200’);
 
 /* Introduzir o autor */
-Insert into autor values(1, ‘Luis Borges Gouveia’, ’Português’);
-Insert into autor values(2, ‘João Ranito’, ’Português’);
-Insert into autor values(3, ‘Nuno Magalhães Ribeiro’, ’Português’);
-Insert into autor values(4, ‘Paulo Rurato’, ’Português’);
-Insert into autor values(5, ‘Sofia Gaio’, ’Português’);
-Insert into autor values(6, ‘Rui Moreira’, ’Português’);
-Insert into autor values(7, ‘Margarida Bairrão’, ’Português’);
-Insert into autor values(8, ‘Judite Gonçalves de Freitas’, ’Português’);
-Insert into autor values(9, ‘António Borges Regedor’, ’Português’);
-Insert into autor values(10, ‘José Dias Coelho’, ’Português’);
-Insert into autor values(11, ‘Paula Moura’, ‘Português’);
-Insert into autor values(12, ‘Luis Cunha’, ‘Português’);
-Insert into autor values(13, ‘Pereira Alfredo’, ‘Angolano’);
+Insert into autor values(1, ‘Luis Borges Gouveia’, ’Portuguesa’);
+Insert into autor values(2, ‘João Ranito’, ’Portuguesa’);
+Insert into autor values(3, ‘Nuno Magalhães Ribeiro’, ’Portuguesa’);
+Insert into autor values(4, ‘Paulo Rurato’, ’Portuguesa’);
+Insert into autor values(5, ‘Sofia Gaio’, ’Portuguesa’);
+Insert into autor values(6, ‘Rui Moreira’, ’Portuguesa’);
+Insert into autor values(7, ‘Margarida Bairrão’, ’Portuguesa’);
+Insert into autor values(8, ‘Judite Gonçalves de Freitas’, ’Portuguesa’);
+Insert into autor values(9, ‘António Borges Regedor’, ’Portuguesa’);
+Insert into autor values(10, ‘José Dias Coelho’, ’Portuguesa’);
+Insert into autor values(11, ‘Paula Moura’, ‘Portuguesa’);
+Insert into autor values(12, ‘Luis Cunha’, ‘Portuguesa’);
+Insert into autor values(13, ‘Pereira Alfredo’, ‘Angolana’);
 
 /* Introduzir a editora */
 Insert into editora values(1, ‘SPI - Principia’);
