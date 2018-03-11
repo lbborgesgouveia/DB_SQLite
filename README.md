@@ -5,8 +5,8 @@ Luis Borges Gouveia
 Universidade Fernando Pessoa
 
 # Uso e exploração de um motor de base de dados para demonstrar o potencial das bases de dados relacionais
-
 Materials to support SQLite tutorial / Materiais de suporte ao uso e exploração do SQLite
+
 Apresentação do modelo de dados sobre livros: 
 https://www.slideshare.net/lmbg/sqlite-select-exemp2013
 
